@@ -932,7 +932,7 @@ public partial class Db202223zVaPrjEverythingnowContext : DbContext
 
         modelBuilder.Entity<Tiket>(entity =>
         {
-            entity.HasKey(e => e.Sediste).HasName("pk_sediste");
+            entity.HasKey(e => new { e.Sediste, e.IdNatprevar }).HasName("pk_sediste");
 
             entity.ToTable("tiket", "project");
 

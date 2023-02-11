@@ -17,7 +17,7 @@ public partial class Tiket
 
     public string? Emailaddress { get; set; }
 
-    public long? IdNatprevar { get; set; }
+    public long IdNatprevar { get; set; }
 
     public virtual Posetitel? EmailaddressNavigation { get; set; }
 

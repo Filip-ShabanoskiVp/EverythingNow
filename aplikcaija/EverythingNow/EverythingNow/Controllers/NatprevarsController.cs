@@ -307,7 +307,7 @@ namespace EverythingNow.Controllers
                 var sedista = _context.Sedista.Where(s => s.IdStadion == IdStadion).ToList();
                 foreach (var n in sedista)
                 {
-                    if (n.Broj == Broj && _context.Tikets.Where(t=>t.Sediste==Broj).FirstOrDefault()!=null)
+                    if (n.Broj == Broj && _context.Tikets.Where(t=>t.Sediste==Broj).Where(t=>t.IdNatprevar==natprevars.IdNatprevar).FirstOrDefault()!=null)
                     {
                         goIma = true;
                         break;
