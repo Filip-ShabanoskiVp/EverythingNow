@@ -1,0 +1,66 @@
+﻿@model IEnumerable<EverythingNow.Models.Natprevar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Games</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Faza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdRezultatNavigation.KonecenRezultat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdStadionNavigation.ImeStadion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faza)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chas)
+            </td>
+                @if (item.IdRezultatNavigation != null)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdRezultatNavigation.KonecenRezultat)
+                    </td>
+            }else{
+                <td>Натпреварот не е сеуште одигран</td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.IdStadionNavigation.ImeStadion)
+            </td>
+            <td>
+                    @if (item.IdRezultat != null){
+                         <a asp-action="Details" class="btn btn-success" asp-route-id="@item.IdNatprevar">Details</a>
+                    }
+                    else if (@ViewBag.korisnickoime != null && item.IdRezultat == null)
+                    {
+                        <a class="btn btn-primary" asp-action="BuyTicket" asp-route-id="@item.IdNatprevar">Buy ticket</a>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

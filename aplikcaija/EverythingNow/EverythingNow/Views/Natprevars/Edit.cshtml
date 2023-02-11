@@ -1,0 +1,59 @@
+﻿@model EverythingNow.Models.Natprevar
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Natprevar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdNatprevar" />
+            <div class="form-group">
+                <label asp-for="Faza" class="control-label"></label>
+                <input asp-for="Faza" class="form-control" />
+                <span asp-validation-for="Faza" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chas" class="control-label"></label>
+                <input asp-for="Chas" class="form-control" />
+                <span asp-validation-for="Chas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdStadion" class="control-label"></label>
+                <select asp-for="IdStadion" class="form-control" asp-items="ViewBag.IdStadion"></select>
+                <span asp-validation-for="IdStadion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <select asp-for="Username" class="form-control" asp-items="ViewBag.Username"></select>
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdRezultat" class="control-label"></label>
+                <select asp-for="IdRezultat" class="form-control" asp-items="ViewBag.IdRezultat"></select>
+                <span asp-validation-for="IdRezultat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
