@@ -45,6 +45,7 @@ namespace EverythingNow.Controllers
                 .Include(n => n.IdRezultatNavigation)
                 .Include(n => n.IdStadionNavigation)
                 .Include(n => n.UsernameNavigation)
+                .Include(n => n.DrzhavaNavigation)
                 .FirstOrDefaultAsync(m => m.IdNatprevar == id);
 
             var pogodoci = await _context.Pogodocis
@@ -260,6 +261,11 @@ namespace EverythingNow.Controllers
             }
 
             ViewBag.natprevar = natprevar.IdNatprevar;
+
+            ViewBag.domakjin = natprevar.drzhavadomakjin;
+            ViewBag.gostin = natprevar.drzhavagostin;
+
+            ViewBag.faza = natprevar.Faza;
 
             ViewBag.broj = sedistas.Count();
 

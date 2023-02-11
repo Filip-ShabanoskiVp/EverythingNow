@@ -29,6 +29,12 @@ public partial class Natprevar
     [DisplayName("Резултат")]
     public long? IdRezultat { get; set; }
 
+    [DisplayName("Домајќин")]
+    public string drzhavadomakjin { get; set; } = null!;
+
+    [DisplayName("Гостин")]
+    public string drzhavagostin { get; set; } = null!;
+
     public virtual Rezultat? IdRezultatNavigation { get; set; }
 
     public virtual Stadion? IdStadionNavigation { get; set; }
@@ -43,5 +49,8 @@ public partial class Natprevar
 
     public virtual ICollection<Reprezentacii> Drzhavas { get; } = new List<Reprezentacii>();
 
-    public virtual ICollection<Igras> Igras { get; } = new List<Igras>();
+
+    public virtual ICollection<Igra> Igras { get; } = new List<Igra>();
+
+    public virtual Reprezentacii DrzhavaNavigation { get; set; } = null!;
 }

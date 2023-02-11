@@ -21,5 +21,9 @@ public partial class Reprezentacii
 
     public virtual ICollection<Natprevar> IdNatprevars { get; } = new List<Natprevar>();
 
-    public virtual ICollection<Igras> Igras { get; } = new List<Igras>();
+    public virtual ICollection<Igra> Igras { get; } = new List<Igra>();
+
+    public virtual ICollection<Natprevar> Natprevars { get; } = new List<Natprevar>();
+
+
 }

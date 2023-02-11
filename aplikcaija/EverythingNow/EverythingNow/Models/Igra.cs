@@ -1,6 +1,8 @@
-﻿namespace EverythingNow.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EverythingNow.Models
 {
-    public class Igras
+    public class Igra
     {
         public string Drzhava { get; set; } = null!;
 

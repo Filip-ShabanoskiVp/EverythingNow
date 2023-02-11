@@ -95,7 +95,8 @@ public partial class Db202223zVaPrjEverythingnowContext : DbContext
 
     public virtual DbSet<Trener> Treners { get; set; }
 
-    public virtual DbSet<Igras> Igras { get; set; }
+    public virtual DbSet<Igra> Igras { get; set; }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -535,6 +536,14 @@ public partial class Db202223zVaPrjEverythingnowContext : DbContext
                 .HasMaxLength(200)
                 .HasColumnName("username");
 
+            entity.Property(e => e.drzhavadomakjin)
+               .HasMaxLength(200)
+               .HasColumnName("drzhavadomakjin");
+
+            entity.Property(e => e.drzhavagostin)
+              .HasMaxLength(200)
+              .HasColumnName("drzhavagostin");
+
             entity.HasOne(d => d.IdRezultatNavigation).WithMany(p => p.Natprevars)
                 .HasForeignKey(d => d.IdRezultat)
                 .HasConstraintName("fk_natprevar_rezultat");
@@ -546,7 +555,16 @@ public partial class Db202223zVaPrjEverythingnowContext : DbContext
             entity.HasOne(d => d.UsernameNavigation).WithMany(p => p.Natprevars)
                 .HasForeignKey(d => d.Username)
                 .HasConstraintName("fk_natprevar_admin");
+
+            entity.HasOne(d => d.DrzhavaNavigation).WithMany(p => p.Natprevars)
+               .HasForeignKey(d => d.drzhavadomakjin)
+               .HasConstraintName("fk_drzhava_domakjin");
+
+            entity.HasOne(d => d.DrzhavaNavigation).WithMany(p => p.Natprevars)
+              .HasForeignKey(d => d.drzhavagostin)
+              .HasConstraintName("fk_drzhava_gostin");
         });
+
 
         modelBuilder.Entity<Pacienti>(entity =>
         {
@@ -998,34 +1016,32 @@ public partial class Db202223zVaPrjEverythingnowContext : DbContext
                 .HasColumnName("ime_trener");
         });
 
-        modelBuilder.Entity<Igras>(entity =>
+        modelBuilder.Entity<Igra>(entity =>
         {
 
 
 
-            entity.HasKey(e => new { e.Drzhava, e.IdNatprevar }).HasName("pk_Igras");
+            entity.HasKey(e => new { e.Drzhava, e.IdNatprevar }).HasName("pk_igra");
 
-            entity.ToTable("igras");
+            entity.ToTable("igra");
 
             entity.Property(e => e.Drzhava)
                  .HasColumnName("drzhava");
 
             entity.Property(e => e.IdNatprevar)
-                .HasColumnName("idnatprevar");
+                .HasColumnName("id_natprevar");
 
 
             entity.HasOne(p => p.DrzhavaNavigation)
             .WithMany(p => p.Igras)
             .HasForeignKey(p => p.Drzhava)
-             .HasConstraintName("fk_igra_drzhavas");
+             .HasConstraintName("fk_igra_drzhava");
 
             entity.HasOne(d => d.IdNatprevarNavigation)
                 .WithMany(p => p.Igras)
                 .HasForeignKey(d => d.IdNatprevar)
-                .HasConstraintName("fk_igra_id_natprevars");
+                .HasConstraintName("fk_igra_id_natprevar");
         });
-
-        OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

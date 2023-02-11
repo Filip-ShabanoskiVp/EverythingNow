@@ -8,14 +8,19 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Натпревар</th>
+            <th>@Html.DisplayNameFor(model => model.IdNatprevarNavigation.Faza)</th>
             <th>
                 @Html.DisplayNameFor(model => model.Sediste)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cena)
+                @Html.DisplayNameFor(model => model.IdNatprevarNavigation.Data)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdNatprevar)
+                @Html.DisplayNameFor(model => model.IdNatprevarNavigation.Chas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
             </th>
             <th></th>
         </tr>
@@ -24,13 +29,22 @@
 @foreach (var item in Model) {
         <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.drzhavadomakjin) vs  @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.drzhavagostin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Faza)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Sediste)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cena)
+                    @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Data)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdNatprevar)
+                    @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Chas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cena)
                 </td>
         </tr>
 }

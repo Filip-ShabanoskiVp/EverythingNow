@@ -34,6 +34,8 @@ namespace EverythingNow.Controllers
 
             var bileti = await _context.Tikets
                 .Where(x => x.Emailaddress == id)
+                .Include(x=>x.IdNatprevarNavigation)
+                .Include(x=>x.IdNatprevarNavigation.IdStadionNavigation)
                 .ToListAsync();
 
             return View(bileti);
