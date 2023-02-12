@@ -80,7 +80,8 @@ namespace EverythingNow.Controllers
             if (ModelState.IsValid)
             {
                 var korisnickoime = _context.Posetitels.Where(x => x.UsernamePosetitel == posetitel.UsernamePosetitel).FirstOrDefault();
-                if (korisnickoime == null)
+                var emailExists = _context.Posetitels.Where(x => x.Emailaddress == posetitel.Emailaddress).FirstOrDefault();
+                if (korisnickoime == null && emailExists==null)
                 {
                     _context.Add(posetitel);
                     await _context.SaveChangesAsync();
@@ -88,7 +89,7 @@ namespace EverythingNow.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Error", "Корисничкото име веќе постои!");
+                    ModelState.AddModelError("Error", "Корисничкото име или емаил адресата веќе постои!");
                     return View(posetitel);
                 }
             }
