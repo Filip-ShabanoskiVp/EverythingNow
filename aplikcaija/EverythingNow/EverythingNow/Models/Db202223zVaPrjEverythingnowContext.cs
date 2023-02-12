@@ -1021,12 +1021,13 @@ public partial class Db202223zVaPrjEverythingnowContext : DbContext
 
 
 
-            entity.HasKey(e => new { e.Drzhava, e.IdNatprevar }).HasName("pk_igra");
 
-            entity.ToTable("igra");
+            entity.ToTable("igra")
+            .HasKey(e => new { e.Drzhava, e.IdNatprevar }).HasName("pk_igra");
 
             entity.Property(e => e.Drzhava)
-                 .HasColumnName("drzhava");
+                  .HasMaxLength(250)
+                  .HasColumnName("drzhava");
 
             entity.Property(e => e.IdNatprevar)
                 .HasColumnName("id_natprevar");

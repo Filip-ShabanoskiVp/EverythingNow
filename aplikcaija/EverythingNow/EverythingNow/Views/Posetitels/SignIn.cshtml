@@ -4,24 +4,28 @@
     ViewData["Title"] = "SignIn";
 }
 
-<h1>SignIn</h1>
+<div class="card">
+    <div class="card-body">
+        <h1>SignIn</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="SignIn">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UsernamePosetitel" class="control-label"></label>
-                <input asp-for="UsernamePosetitel" class="form-control" />
-                <span asp-validation-for="UsernamePosetitel" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="SignIn">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="UsernamePosetitel" class="control-label"></label>
+                        <input asp-for="UsernamePosetitel" class="form-control" />
+                        <span asp-validation-for="UsernamePosetitel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PasswordPosetitel" class="control-label"></label>
+                        <input asp-for="PasswordPosetitel" type="password" class="form-control" />
+                        <span asp-validation-for="PasswordPosetitel" class="text-danger"></span>
+                        <p class="col-12 text-center text-danger">@Html.ValidationMessage("Error")</p>
+                    </div>
+                    <input type="submit" value="Sign In" class="btn btn-primary btn-lg" />
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="PasswordPosetitel" class="control-label"></label>
-                <input asp-for="PasswordPosetitel" type="password" class="form-control" />
-                <span asp-validation-for="PasswordPosetitel" class="text-danger"></span>
-                <p class="col-12 text-center text-danger">@Html.ValidationMessage("Error")</p>
-            </div>
-            <input type="submit" value="Login" class="btn btn-primary btn-lg" />
-        </form>
+        </div>
     </div>
 </div>

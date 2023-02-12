@@ -4,40 +4,45 @@
     ViewData["Title"] = "Buy";
 }
 
-<h1>Buy your tickets</h1>
+<div class="card">
+    <div class="card-body">
+        <h1>Buy your tickets</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td><span class="btn btn-primary">@item.Broj</span></td>
-                <td>
-                    <form asp-action="Buy" asp-controller="Natprevars" method="post">
-                        <input type="hidden" id="@ViewBag.natprevar" name="natprevar" value="@ViewBag.natprevar">
-                        <input type="hidden" id="@item.Broj" name="Broj" value="@item.Broj">
-                        <input type="hidden" id="@item.Broj" name="IdStadion" value="@item.IdStadion">
-                        <input type="hidden" id="@item.Cena" name="Cena" value="@item.Cena">
-                        @if (item.Slobodno == true)
-                        {
-                            <input type="hidden" id="true" name="Slobodno" value="true">
-                        }
-                        else
-                        {
-                            <input type="hidden" id="false" name="Slobodno" value="false">
-                        }
-                        <button type="submit" class="btn btn-success">Buy</button>
-                    </form>
-                </td>
-                <td>Cena: @item.Cena</td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><span class="btn btn-primary">@item.Broj</span></td>
+                        <td>
+                            <form asp-action="Buy" asp-controller="Natprevars" method="post">
+                                <input type="hidden" id="@ViewBag.natprevar" name="natprevar" value="@ViewBag.natprevar">
+                                <input type="hidden" id="@item.Broj" name="Broj" value="@item.Broj">
+                                <input type="hidden" id="@item.Broj" name="IdStadion" value="@item.IdStadion">
+                                <input type="hidden" id="@item.Cena" name="Cena" value="@item.Cena">
+                                @if (item.Slobodno == true)
+                                {
+                                    <input type="hidden" id="true" name="Slobodno" value="true">
+                                }
+                                else
+                                {
+                                    <input type="hidden" id="false" name="Slobodno" value="false">
+                                }
+                                <button type="submit" class="btn btn-success">Buy</button>
+                            </form>
+                        </td>
+                        <td>Cena: @item.Cena</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+ </div>

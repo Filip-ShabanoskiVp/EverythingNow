@@ -4,56 +4,65 @@
     ViewData["Title"] = "BuyTicket";
 }
 
-<h1>@ViewBag.faza: @ViewBag.domakjin vs @ViewBag.gostin</h1>
-<h3>Free seets: </h3>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdStadionNavigation.ImeStadion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Broj)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cena)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (ViewBag.broj>0){
-            @foreach (var item in Model)
-            {
+<div class="card">
+    <div class="card-body">
+        <h1>@ViewBag.faza: @ViewBag.domakjin vs @ViewBag.gostin</h1>
+        <h3>Free seets: </h3>
+
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdStadionNavigation.ImeStadion)
-                    </td>
-                    <td>
-                        <form asp-action="BuyTicket" asp-controller="Natprevars" method="post">
-                            <input type="hidden" id="@ViewBag.natprevar" name="natprevar" value="@ViewBag.natprevar">
-                            <input type="hidden" id="@item.Broj" name="Broj" value="@item.Broj">
-                            <input type="hidden" id="@item.Broj" name="IdStadion" value="@item.IdStadion">
-                            <input type="hidden" id="@item.Cena" name="Cena" value="@item.Cena">
-                            @if (item.Slobodno == true)
-                            {
-                                <input type="hidden" id="true" name="Slobodno" value="true">
-                            }
-                            else
-                            {
-                                <input type="hidden" id="false" name="Slobodno" value="false">
-                            }
-                            <button type="submit" class="btn btn-primary">@item.Broj</button>
-                        </form>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cena)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdStadionNavigation.ImeStadion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Broj)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cena)
+                    </th>
                 </tr>
-            }
-        }else{
-            <tr><span class="text-warning">Билетите се распродадени</span></tr>
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                @if (ViewBag.broj > 0)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdStadionNavigation.ImeStadion)
+                            </td>
+                            <td>
+                                <form asp-action="BuyTicket" asp-controller="Natprevars" method="post">
+                                    <input type="hidden" id="@ViewBag.natprevar" name="natprevar" value="@ViewBag.natprevar">
+                                    <input type="hidden" id="@item.Broj" name="Broj" value="@item.Broj">
+                                    <input type="hidden" id="@item.Broj" name="IdStadion" value="@item.IdStadion">
+                                    <input type="hidden" id="@item.Cena" name="Cena" value="@item.Cena">
+                                    @if (item.Slobodno == true)
+                                    {
+                                        <input type="hidden" id="true" name="Slobodno" value="true">
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" id="false" name="Slobodno" value="false">
+                                    }
+                                    <button type="submit" class="btn btn-primary">@item.Broj</button>
+                                </form>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cena)
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr><span class="text-warning">Билетите се распродадени</span></tr>
+                }
+            </tbody>
+        </table>
 
+
+    </div>
+</div>

@@ -3,55 +3,64 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Купени билети</h1>
+<div class="card">
+    <div class="card-body">
+        <h1>Купени билети</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Натпревар</th>
-            <th>@Html.DisplayNameFor(model => model.IdNatprevarNavigation.Faza)</th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sediste)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdNatprevarNavigation.Data)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdNatprevarNavigation.Chas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cena)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.drzhavadomakjin) vs  @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.drzhavagostin)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Faza)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sediste)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Data)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Chas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cena)
-                </td>
-        </tr>
-}
-    </tbody>
-</table>
-<a asp-action="Index">Back</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Натпревар</th>
+                    <th>@Html.DisplayNameFor(model => model.IdNatprevarNavigation.Faza)</th>
+                    <th>@Html.DisplayNameFor(model => model.IdNatprevarNavigation.IdStadionNavigation.ImeStadion)</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sediste)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdNatprevarNavigation.Data)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdNatprevarNavigation.Chas)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cena)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.drzhavadomakjin) vs  @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.drzhavagostin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.IdStadionNavigation.ImeStadion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Faza)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sediste)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Data)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdNatprevarNavigation.Chas)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cena)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-action="Index">Back</a>
 
+    </div>
+</div>
 
 
 

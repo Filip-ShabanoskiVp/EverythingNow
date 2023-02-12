@@ -4,40 +4,46 @@
     ViewData["Title"] = "SignUp";
 }
 
-<h1>SignUp</h1>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="SignUp">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Emailaddress" class="control-label"></label>
-                <input asp-for="Emailaddress" type="email" class="form-control" />
-                <span asp-validation-for="Emailaddress" class="text-danger"></span>
+<div class="card">
+    <div class="card-body">
+        <h1>SignUp</h1>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="SignUp">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Emailaddress" class="control-label"></label>
+                        <input asp-for="Emailaddress" type="email" class="form-control" />
+                        <span asp-validation-for="Emailaddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImePosetitel" class="control-label"></label>
+                        <input asp-for="ImePosetitel" class="form-control" />
+                        <span asp-validation-for="ImePosetitel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UsernamePosetitel" class="control-label"></label>
+                        <input asp-for="UsernamePosetitel" class="form-control" />
+                        <p class="col-12 text-center text-danger">@Html.ValidationMessage("Error")</p>
+                        <span asp-validation-for="UsernamePosetitel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PasswordPosetitel" class="control-label"></label>
+                        <input asp-for="PasswordPosetitel" type="password" class="form-control" />
+                        <span asp-validation-for="PasswordPosetitel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="SignUp" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="ImePosetitel" class="control-label"></label>
-                <input asp-for="ImePosetitel" class="form-control" />
-                <span asp-validation-for="ImePosetitel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UsernamePosetitel" class="control-label"></label>
-                <input asp-for="UsernamePosetitel" class="form-control" />
-                <p class="col-12 text-center text-danger">@Html.ValidationMessage("Error")</p>
-                <span asp-validation-for="UsernamePosetitel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PasswordPosetitel" class="control-label"></label>
-                <input asp-for="PasswordPosetitel" type="password" class="form-control" />
-                <span asp-validation-for="PasswordPosetitel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="SignUp" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
+
 
 
 @section Scripts {
